@@ -14,7 +14,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.16.1'
-      - run: yarn config set cacheFolder ~/.cache/yarn
       - run: yarn install --immutable
       - run: yarn lint
       - run: yarn test
