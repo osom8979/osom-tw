@@ -18,7 +18,7 @@ jobs:
           node-version: '18.16.1'
           registry-url: 'https://registry.npmjs.org'
       - run: yarn config set cacheFolder ~/.cache/yarn
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install
       - run: yarn npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

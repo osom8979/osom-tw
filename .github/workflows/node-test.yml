@@ -15,6 +15,6 @@ jobs:
         with:
           node-version: '18.16.1'
       - run: yarn config set cacheFolder ~/.cache/yarn
-      - run: yarn install --immutable --immutable-cache
+      - run: yarn install
       - run: yarn lint
       - run: yarn test
