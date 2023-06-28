@@ -4,6 +4,12 @@
 
 osom tw
 
+## Setup Yarn v2 (Berry)
+
+```shell
+./yarn set version berry
+```
+
 ## Compiles and minifies for production
 
 ```shell
