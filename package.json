@@ -5,6 +5,7 @@
   "repository": "https://github.com/osom8979/osom-tw",
   "author": "zer0",
   "license": "MIT",
+  "private": false,
   "main": "dist/index.js",
   "files": [
     "dist",
