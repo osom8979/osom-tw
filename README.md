@@ -1,4 +1,4 @@
-# osom-tw
+# @osom.run/tw
 
 [![GitHub](https://img.shields.io/github/license/osom8979/osom-tw?style=flat-square)](https://github.com/osom8979/osom-tw/)
 
