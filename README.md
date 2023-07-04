@@ -1,8 +1,8 @@
-# osom-tw
+# osom-ui
 
-[![GitHub](https://img.shields.io/github/license/osom8979/osom-tw?style=flat-square)](https://github.com/osom8979/osom-tw/)
+[![GitHub](https://img.shields.io/github/license/osom8979/osom-ui?style=flat-square)](https://github.com/osom8979/osom-ui/)
 
-osom tw
+osom ui
 
 ## Setup Yarn v2 (Berry)
 
@@ -37,4 +37,4 @@ yarn test
 ## License
 
 See the [LICENSE](./LICENSE) file for details. In summary,
-**osom-tw** is licensed under the **MIT license**.
+**osom-ui** is licensed under the **MIT license**.
