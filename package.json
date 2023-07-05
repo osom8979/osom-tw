@@ -12,12 +12,17 @@
   "exports": {
     ".": {
       "import": "./dist/osom-ui.es.js",
-      "require": "./dist/osom-ui.umd.cjs"
+      "require": "./dist/osom-ui.umd.js"
     }
   },
   "files": [
     "dist",
     "tailwind.plugin.osomui.js"
+  ],
+  "keywords": [
+    "osom",
+    "react",
+    "ui"
   ],
   "scripts": {
     "dev": "vite",
@@ -36,8 +41,8 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.5.2",
-    "@types/react": "^18.0.37",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
     "@typescript-eslint/eslint-plugin": "^5.60.1",
     "@typescript-eslint/parser": "^5.60.1",
     "@vitejs/plugin-react-swc": "^3.0.0",

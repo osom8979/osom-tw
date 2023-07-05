@@ -1,11 +1,11 @@
-import * as React from 'react';
+import {Component} from 'react';
 import styles from './Button.module.scss';
 
 export interface ButtonProps {
   caption?: string;
 }
 
-export class Button extends React.Component<ButtonProps> {
+export class Button extends Component<ButtonProps> {
   static defaultProps = {
     caption: '',
   };
