@@ -1,0 +1,17 @@
+$font-weights: (
+        'Regular': 400,
+        'Bold': 700,
+);
+
+@each $name, $weight in $font-weights {
+  @font-face {
+    font-family: 'Nanum Gothic Coding';
+    font-style: normal;
+    font-weight: $weight;
+    font-display: swap;
+    src: local('Hahmlet #{$name}'),
+    url('/fonts/NanumGothicCoding/NanumGothicCoding-#{$name}.woff2') format('woff2'),
+    url('/fonts/NanumGothicCoding/NanumGothicCoding-#{$name}.woff') format('woff'),
+    url('/fonts/NanumGothicCoding/NanumGothicCoding-#{$name}.ttf') format('ttf');
+  }
+}

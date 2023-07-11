@@ -1,0 +1,24 @@
+$font-weights: (
+        'Thin': 100,
+        'ExtraLight': 200,
+        'Light': 300,
+        'Regular': 400,
+        'Medium': 500,
+        'SemiBold': 600,
+        'Bold': 700,
+        'ExtraBold': 800,
+        'Black': 900,
+);
+
+@each $name, $weight in $font-weights {
+  @font-face {
+    font-family: 'Hahmlet';
+    font-style: normal;
+    font-weight: $weight;
+    font-display: swap;
+    src: local('Hahmlet #{$name}'),
+    url('/fonts/Hahmlet/Hahmlet-#{$name}.woff2') format('woff2'),
+    url('/fonts/Hahmlet/Hahmlet-#{$name}.woff') format('woff'),
+    url('/fonts/Hahmlet/Hahmlet-#{$name}.ttf') format('ttf');
+  }
+}

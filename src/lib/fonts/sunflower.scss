@@ -1,0 +1,18 @@
+$font-weights: (
+        'Light': 300,
+        'Medium': 500,
+        'Bold': 700,
+);
+
+@each $name, $weight in $font-weights {
+  @font-face {
+    font-family: 'Sunflower';
+    font-style: normal;
+    font-weight: $weight;
+    font-display: swap;
+    src: local('Sunflower #{$name}'),
+    url('/fonts/Sunflower/Sunflower-#{$name}.woff2') format('woff2'),
+    url('/fonts/Sunflower/Sunflower-#{$name}.woff') format('woff'),
+    url('/fonts/Sunflower/Sunflower-#{$name}.ttf') format('ttf');
+  }
+}
