@@ -1,3 +1,3 @@
-import './hahmlet';
-import './nanum-gothic-coding';
-import './sunflower';
+import './hahmlet.scss';
+import './nanum-gothic-coding.scss';
+import './sunflower.scss';
