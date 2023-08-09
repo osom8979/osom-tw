@@ -13,6 +13,9 @@
     ".": {
       "import": "./dist/osom-ui.es.js",
       "require": "./dist/osom-ui.umd.js"
+    },
+    "./tailwind.plugin": {
+      "require": "./tailwind.plugin.osomui.js"
     }
   },
   "files": [
