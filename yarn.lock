@@ -636,6 +636,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@fontsource-variable/hahmlet@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "@fontsource-variable/hahmlet@npm:5.0.7"
+  checksum: adfe46dfcc112b1a998505809a1084b3bde704cead4d39eb413d0374132ba3815647bf411cc3fa0c7a2627e242761d52883976d8f2089fabf7ec6e87f7d3b1cc
+  languageName: node
+  linkType: hard
+
+"@fontsource/nanum-gothic-coding@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "@fontsource/nanum-gothic-coding@npm:5.0.7"
+  checksum: 373fcb0c44d6284deddfb412b0a24f73b5f86f4efe67cc3c2c9322dde07ad5f685fa076a66941a10a6d5366f428bb5656a4ff0005884b58f687c13ed1ef871a7
+  languageName: node
+  linkType: hard
+
+"@fontsource/sunflower@npm:^5.0.7":
+  version: 5.0.7
+  resolution: "@fontsource/sunflower@npm:5.0.7"
+  checksum: 8061b4276cdf0e941dfb398269c4c2c0414881d9fc7b03583e87c951ca5e488c892b16ee5b24249b5a37e3da1271ebb78a2699b7e720cb9624ea9aa1f512fde6
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.10":
   version: 0.11.10
   resolution: "@humanwhocodes/config-array@npm:0.11.10"
@@ -5329,6 +5350,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "osom-ui@workspace:."
   dependencies:
+    "@fontsource-variable/hahmlet": ^5.0.7
+    "@fontsource/nanum-gothic-coding": ^5.0.7
+    "@fontsource/sunflower": ^5.0.7
     "@testing-library/jest-dom": ^5.16.5
     "@testing-library/react": ^14.0.0
     "@types/jest": ^29.5.2

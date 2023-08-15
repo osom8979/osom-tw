@@ -4,7 +4,7 @@ function App() {
   return (
     <div className={styles.root}>
       <a href="https://osom.run" target="_blank">
-        <img src="/images/osom.run.svg" alt="osom.run logo" />
+        <img src="/src/assets/osom.run.svg" alt="osom.run logo" />
       </a>
     </div>
   );

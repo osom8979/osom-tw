@@ -14,12 +14,17 @@
       "import": "./dist/osom-ui.es.js",
       "require": "./dist/osom-ui.umd.js"
     },
-    "./tailwind.plugin": {
-      "require": "./tailwind.plugin.osomui.js"
-    }
+    "./style": "./dist/style.css",
+    "./fonts": {
+      "import": "./fonts.es.js",
+      "require": "./fonts.umd.js"
+    },
+    "./tailwind.plugin.osomui": "./tailwind.plugin.osomui.js"
   },
   "files": [
     "dist",
+    "fonts.es.js",
+    "fonts.umd.js",
     "tailwind.plugin.osomui.js"
   ],
   "keywords": [
@@ -37,6 +42,9 @@
     "preview": "vite preview -c vite.config.pages.ts"
   },
   "dependencies": {
+    "@fontsource-variable/hahmlet": "^5.0.7",
+    "@fontsource/nanum-gothic-coding": "^5.0.7",
+    "@fontsource/sunflower": "^5.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

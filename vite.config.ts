@@ -21,7 +21,13 @@ export default defineConfig({
       fileName: format => `osom-ui.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: [
+        '@fontsource-variable/hahmlet',
+        '@fontsource/nanum-gothic-coding',
+        '@fontsource/sunflower',
+        'react',
+        'react-dom',
+      ],
       output: {
         globals: {
           react: 'React',
