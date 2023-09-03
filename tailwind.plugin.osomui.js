@@ -18,15 +18,17 @@ const osomUiPlugin = plugin(
           secondary: '#ADC4CE',
           tertiary: '#EEE0C9',
           quaternary: '#F1F0E8',
+          background: '#F0F0F0',
           dark: {
             primary: '#27374D',
             secondary: '#526D82',
             tertiary: '#9DB2BF',
             quaternary: '#DDE6ED',
+            background: '#0f172a',
           },
         },
         spacing: {
-          topbar: '2.5rem',
+          header: '2.5rem',
         },
       },
     },
