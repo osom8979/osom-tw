@@ -9,7 +9,7 @@ const osomUiPlugin = plugin(
     theme: {
       extend: {
         fontFamily: {
-          sans: ['Sunflower', 'sans-serif', 'system-ui'],
+          sans: ['Noto Sans KR', 'sans-serif', 'system-ui'],
           serif: ['Hahmlet Variable', 'serif', 'system-ui'],
           mono: ['Nanum Gothic Coding', 'monospace', 'system-ui'],
         },
