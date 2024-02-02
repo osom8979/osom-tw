@@ -5,7 +5,7 @@ export interface ButtonProps {
   caption?: string;
 }
 
-export class Button extends Component<ButtonProps> {
+export class Button extends Component<Required<ButtonProps>> {
   static defaultProps = {
     caption: '',
   };

@@ -6,26 +6,28 @@
   "author": "zer0",
   "license": "MIT",
   "type": "module",
-  "main": "./dist/osom-ui.umd.js",
-  "module": "./dist/osom-ui.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/lib/osom-ui.umd.js",
+  "module": "./dist/lib/osom-ui.es.js",
+  "types": "./dist/lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/osom-ui.es.js",
-      "require": "./dist/osom-ui.umd.js"
+      "import": "./dist/lib/osom-ui.es.js",
+      "require": "./dist/lib/osom-ui.umd.js"
     },
-    "./style": "./dist/style.css",
+    "./style": "./dist/lib/style.css",
     "./fonts": {
       "import": "./fonts.es.js",
       "require": "./fonts.umd.js"
     },
-    "./tailwind.plugin.osomui": "./tailwind.plugin.osomui.js"
+    "./tailwind.plugin.osomui": {
+      "import": "./dist/tailwind/osom-tailwind.es.js",
+      "require": "./dist/tailwind/osom-tailwind.umd.js"
+    }
   },
   "files": [
     "dist",
     "fonts.es.js",
-    "fonts.umd.js",
-    "tailwind.plugin.osomui.js"
+    "fonts.umd.js"
   ],
   "keywords": [
     "osom",
@@ -34,7 +36,8 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:tailwind": "tsc && vite build -c vite.config.tailwind.ts",
+    "build:lib": "tsc && vite build -c vite.config.lib.ts",
     "build:pages": "tsc && vite build -c vite.config.pages.ts",
     "style": "prettier src -w",
     "lint": "eslint src --ext jsx,js,tsx,ts --report-unused-disable-directives --max-warnings 0",

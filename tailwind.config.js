@@ -4,5 +4,5 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [require('./tailwind.plugin.osomui.js')],
+  plugins: [require('./dist/tailwind/osom-tailwind.umd.js')],
 };

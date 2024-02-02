@@ -3,37 +3,30 @@ import {resolve} from 'path';
 import react from '@vitejs/plugin-react-swc';
 import dts from 'vite-plugin-dts';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   base: '/',
   plugins: [
     react(),
     dts({
-      entryRoot: resolve(__dirname, 'src', 'lib'),
+      outDir: resolve(__dirname, 'dist', 'tailwind'),
+      entryRoot: resolve(__dirname, 'src', 'tailwind'),
       insertTypesEntry: true,
     }),
   ],
   build: {
+    outDir: resolve(__dirname, 'dist', 'tailwind'),
     lib: {
-      entry: resolve(__dirname, 'src', 'lib', 'index.ts'),
-      name: 'osom-ui',
+      entry: resolve(__dirname, 'src', 'tailwind', 'index.ts'),
+      name: 'osom-tailwind',
       formats: ['es', 'umd'],
-      fileName: format => `osom-ui.${format}.js`,
+      fileName: format => `osom-tailwind.${format}.js`,
     },
     rollupOptions: {
       external: [
         '@fontsource-variable/hahmlet',
+        '@fontsource-variable/noto-sans-kr',
         '@fontsource/nanum-gothic-coding',
-        '@fontsource/sunflower',
-        'react',
-        'react-dom',
       ],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
     },
   },
 });

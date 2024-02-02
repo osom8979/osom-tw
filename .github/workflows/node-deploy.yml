@@ -19,7 +19,8 @@ jobs:
           node-version: '18.16.1'
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install --immutable
-      - run: yarn build
+      - run: yarn build:tailwind
+      - run: yarn build:lib
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

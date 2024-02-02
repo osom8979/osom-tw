@@ -1,7 +1,6 @@
-/** @type {import('tailwindcss/plugin').Plugin} */
-const plugin = require('tailwindcss/plugin'); // eslint-disable-line @typescript-eslint/no-var-requires
+import plugin from 'tailwindcss/plugin';
 
-const osomUiPlugin = plugin(
+export const OsomUiTailwindPlugin = plugin(
   () => {
     // EMPTY.
   },
@@ -35,4 +34,4 @@ const osomUiPlugin = plugin(
   },
 );
 
-module.exports = osomUiPlugin;
+export default OsomUiTailwindPlugin;
