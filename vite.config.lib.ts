@@ -24,8 +24,8 @@ export default defineConfig({
     rollupOptions: {
       external: [
         '@fontsource-variable/hahmlet',
+        '@fontsource-variable/noto-sans-kr',
         '@fontsource/nanum-gothic-coding',
-        '@fontsource/sunflower',
         'react',
         'react-dom',
       ],
