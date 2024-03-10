@@ -39,6 +39,7 @@
     "build:tailwind": "tsc && vite build -c vite.config.tailwind.ts",
     "build:lib": "tsc && vite build -c vite.config.lib.ts",
     "build:pages": "tsc && vite build -c vite.config.pages.ts",
+    "build": "tsc && vite build -c vite.config.tailwind.ts && vite build -c vite.config.lib.ts && vite build -c vite.config.pages.ts",
     "style": "prettier src -w",
     "lint": "eslint src --ext jsx,js,tsx,ts --report-unused-disable-directives --max-warnings 0",
     "test": "jest",
@@ -76,7 +77,7 @@
     "tailwindcss": "^3.3.2",
     "ts-jest": "^29.1.0",
     "typescript": "^5.1.5",
-    "vite": "^4.3.9",
+    "vite": "^5.1.5",
     "vite-plugin-dts": "^3.0.3"
   },
   "eslintConfig": {
