@@ -1,4 +1,6 @@
 export interface OsomTheme {
+  colorScheme: 'light' | 'dark';
+
   fontSans: string;
   fontSerif: string;
   fontMono: string;

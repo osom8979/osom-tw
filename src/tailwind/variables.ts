@@ -29,8 +29,9 @@ export const osom_rounded_box = '--osom-rounded-box';
 export const osom_rounded_btn = '--osom-rounded-btn';
 export const osom_rounded_badge = '--osom-rounded-badge';
 
-export function convertFallbackVariables(theme: OsomTheme) {
+export function fallbackVariables(theme: OsomTheme) {
   return {
+    'color-scheme': theme.colorScheme,
     [osom_font_sans]: theme.fontSans,
     [osom_font_serif]: theme.fontSerif,
     [osom_font_mono]: theme.fontMono,

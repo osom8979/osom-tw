@@ -1,28 +1,31 @@
 import type {PluginAPI} from 'tailwindcss/types/config';
 import {type OsomOptions, getRequiredOptions} from './options';
-import {convertFallbackVariables} from './variables';
+import {fallbackVariables} from './variables';
 
 export function createOsomPlugin(api: PluginAPI, options: OsomOptions): void {
   console.assert(typeof options !== 'undefined');
 
-  const {prefix, light, dark} = getRequiredOptions(options);
+  const {prefix, light, dark, themes} = getRequiredOptions(options);
   const {addBase, addComponents, theme} = api;
-  const lightFallbackVariables = convertFallbackVariables(light);
-  const darkFallbackVariables = convertFallbackVariables(dark);
+  const dataThemes = Object.entries(themes).reduce((o, [key, value]) => {
+    o[`[data-theme=${key}]`] = value;
+    return o;
+  }, {} as typeof themes);
 
   addBase({
-    ':root': {
+    ':root, [data-theme]': {
       backgroundColor: theme('colors.base.100'),
       color: theme('colors.base.content'),
-      colorScheme: 'light',
-      ...lightFallbackVariables,
+    },
+    ':root': {
+      ...fallbackVariables(themes[light]),
     },
     '@media (prefers-color-scheme: dark)': {
       ':root': {
-        colorScheme: 'dark',
-        ...darkFallbackVariables,
+        ...fallbackVariables(themes[dark]),
       },
     },
+    ...dataThemes,
   });
 
   addComponents({

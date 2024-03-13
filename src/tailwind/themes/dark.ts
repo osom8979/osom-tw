@@ -1,6 +1,7 @@
 import type {OsomTheme} from './interface';
 
 export const DEFAULT_DARK_THEME = {
+  colorScheme: 'dark',
   fontSans: 'Noto Sans KR',
   fontSerif: 'Hahmlet Variable',
   fontMono: 'Nanum Gothic Coding',

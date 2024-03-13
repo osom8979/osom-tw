@@ -1,6 +1,7 @@
 import type {OsomTheme} from './interface';
 
 export const DEFAULT_LIGHT_THEME = {
+  colorScheme: 'light',
   fontSans: 'Noto Sans KR',
   fontSerif: 'Hahmlet Variable',
   fontMono: 'Nanum Gothic Coding',
