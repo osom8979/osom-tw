@@ -12,6 +12,12 @@ export interface OsomTheme {
   colorPrimaryContent: string;
   colorSecondary: string;
   colorSecondaryContent: string;
+
+  colorAccent: string;
+  colorAccentContent: string;
+  colorNeutral: string;
+  colorNeutralContent: string;
+
   colorInfo: string;
   colorInfoContent: string;
   colorSuccess: string;

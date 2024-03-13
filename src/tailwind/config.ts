@@ -1,9 +1,7 @@
-import type {PluginAPI, Config} from 'tailwindcss/types/config';
-import type {OsomTheme} from './theme/interface';
-import {DEFAULT_LIGHT_THEME} from './theme/light';
-import {DEFAULT_DARK_THEME} from './theme/dark';
+import type {Config} from 'tailwindcss/types/config';
+import {hexToRgb} from './colors';
+import type {OsomOptions} from './options';
 import {
-  convertFallbackVariables,
   osom_font_sans,
   osom_font_serif,
   osom_font_mono,
@@ -15,6 +13,10 @@ import {
   osom_color_primary_content,
   osom_color_secondary,
   osom_color_secondary_content,
+  osom_color_accent,
+  osom_color_accent_content,
+  osom_color_neutral,
+  osom_color_neutral_content,
   osom_color_info,
   osom_color_info_content,
   osom_color_success,
@@ -27,61 +29,33 @@ import {
   osom_rounded_box,
   osom_rounded_btn,
   osom_rounded_badge,
-} from './theme/fallback';
+} from './variables';
 
-export const DEFAULT_PREFIX = 'osom-';
-
-export interface OsomPluginOptions {
-  logs?: boolean;
-  prefix?: string;
-  light?: Partial<OsomTheme>;
-  dark?: Partial<OsomTheme>;
-}
-
-export function createOsomPlugin(api: PluginAPI, options: OsomPluginOptions): void {
-  console.assert(typeof options !== 'undefined');
-
-  const prefix = options.prefix || DEFAULT_PREFIX;
-  const {addBase, addComponents, theme} = api;
-
-  const light = convertFallbackVariables({...DEFAULT_LIGHT_THEME, ...options.light});
-  const dark = convertFallbackVariables({...DEFAULT_DARK_THEME, ...options.dark});
-
-  addBase({
-    ':root': {
-      backgroundColor: theme('colors.base.100'),
-      color: theme('colors.base.content'),
-      colorScheme: 'light',
-      ...light,
-    },
-    '@media (prefers-color-scheme: dark)': {
-      ':root': {
-        colorScheme: 'dark',
-        ...dark,
-      },
-    },
-  });
-
-  addComponents({
-    [`.${prefix}btn`]: {
-      display: 'flex',
-      color: theme('colors.gray.400'),
-    },
-  });
-}
-
-export function createOsomConfig(options: OsomPluginOptions): Partial<Config> {
+export function createOsomConfig(options: OsomOptions): Partial<Config> {
   console.assert(typeof options !== 'undefined');
   return {
     theme: {
       extend: {
         fontFamily: {
-          sans: [`var(${osom_font_sans})`, 'Noto Sans KR', 'sans-serif', 'system-ui'],
-          serif: [`var(${osom_font_serif})`, 'Hahmlet Variable', 'serif', 'system-ui'],
+          sans: [
+            `var(${osom_font_sans})`,
+            'Noto Sans KR',
+            'sans-serif',
+            'ui-serif',
+            'system-ui',
+          ],
+          serif: [
+            `var(${osom_font_serif})`,
+            'Hahmlet Variable',
+            'serif',
+            'ui-sans-serif',
+            'system-ui',
+          ],
           mono: [
             `var(${osom_font_mono})`,
             'Nanum Gothic Coding',
             'monospace',
+            'ui-monospace',
             'system-ui',
           ],
         },
@@ -102,6 +76,25 @@ export function createOsomConfig(options: OsomPluginOptions): Partial<Config> {
             DEFAULT: `rgba(var(${osom_color_secondary}), <alpha-value>)`,
             content: `rgba(var(${osom_color_secondary_content}), <alpha-value>)`,
           },
+          accent: {
+            DEFAULT: `rgba(var(${osom_color_accent}), <alpha-value>)`,
+            content: `rgba(var(${osom_color_accent_content}), <alpha-value>)`,
+          },
+          neutral: {
+            DEFAULT: `rgba(var(${osom_color_neutral}), <alpha-value>)`,
+            content: `rgba(var(${osom_color_neutral_content}), <alpha-value>)`,
+            50: `rgba(${hexToRgb('#fafafa')}, <alpha-value>)`,
+            100: `rgba(${hexToRgb('#f5f5f5')}, <alpha-value>)`,
+            200: `rgba(${hexToRgb('#e5e5e5')}, <alpha-value>)`,
+            300: `rgba(${hexToRgb('#d4d4d4')}, <alpha-value>)`,
+            400: `rgba(${hexToRgb('#a3a3a3')}, <alpha-value>)`,
+            500: `rgba(${hexToRgb('#737373')}, <alpha-value>)`,
+            600: `rgba(${hexToRgb('#525252')}, <alpha-value>)`,
+            700: `rgba(${hexToRgb('#404040')}, <alpha-value>)`,
+            800: `rgba(${hexToRgb('#262626')}, <alpha-value>)`,
+            900: `rgba(${hexToRgb('#171717')}, <alpha-value>)`,
+            950: `rgba(${hexToRgb('#0a0a0a')}, <alpha-value>)`,
+          },
           info: {
             DEFAULT: `rgba(var(${osom_color_info}), <alpha-value>)`,
             content: `rgba(var(${osom_color_info_content}), <alpha-value>)`,
@@ -121,7 +114,7 @@ export function createOsomConfig(options: OsomPluginOptions): Partial<Config> {
         },
         spacing: {
           cell: `var(${osom_size_cell}, 3rem)`,
-          cellEtc: 'calc(100vh - theme(spacing.cell))',
+          'cell-etc': 'calc(100vh - theme(spacing.cell))',
         },
         borderRadius: {
           box: `var(${osom_rounded_box}, 0.75rem)`,

@@ -1,11 +1,13 @@
 import plugin from 'tailwindcss/plugin';
-import {type OsomPluginOptions, createOsomPlugin, createOsomConfig} from './creator';
+import {createOsomConfig} from './config';
+import type {OsomOptions} from './options';
+import {createOsomPlugin} from './plugin';
 
 export const OsomUiTailwindPlugin = plugin.withOptions(
-  (options: OsomPluginOptions = {}) => {
+  (options: OsomOptions = {}) => {
     return api => createOsomPlugin(api, options);
   },
-  (options: OsomPluginOptions = {}) => {
+  (options: OsomOptions = {}) => {
     return createOsomConfig(options);
   },
 );
