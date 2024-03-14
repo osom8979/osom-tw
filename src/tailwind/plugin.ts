@@ -11,8 +11,8 @@ export function createOsomPlugin(api: PluginAPI, options: OsomOptions): void {
 
   addBase({
     ':root, [data-theme]': {
-      backgroundColor: theme('colors.base.100'),
-      color: theme('colors.base.content'),
+      backgroundColor: 'theme("colors.base.100")',
+      color: 'theme("colors.base.content")',
     },
     ':root': {
       ...fallback.asVariables(themes[light]),
