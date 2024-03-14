@@ -3,7 +3,7 @@ import {type OsomOptions, getRequiredOptions} from './options';
 
 export function createOsomPlugin(api: PluginAPI, options: OsomOptions): void {
   const {prefix, light, dark, themes, fallback} = getRequiredOptions(options);
-  const {addBase, addComponents, theme} = api;
+  const {addBase, addComponents} = api;
   const dataThemes = Object.entries(themes).reduce((o, [key, value]) => {
     o[`[data-theme=${key}]`] = fallback.asVariables(value);
     return o;
@@ -26,9 +26,18 @@ export function createOsomPlugin(api: PluginAPI, options: OsomOptions): void {
   });
 
   addComponents({
-    [`.${prefix}btn`]: {
+    [`.${prefix}viewport`]: {
+      width: '100vw',
+      height: '100vh',
+      margin: '0',
+      padding: '0',
+    },
+    [`.${prefix}center`]: {
+      width: '100%',
+      height: '100%',
       display: 'flex',
-      color: theme('colors.gray.400'),
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   });
 }
