@@ -14,7 +14,7 @@ export interface OsomOptions {
   themes?: Record<string, Partial<OsomTheme>>;
 }
 
-type RequiredOsomOptions = Required<Omit<OsomOptions, 'themes'>> & {
+export type RequiredOsomOptions = Required<Omit<OsomOptions, 'themes'>> & {
   fallback: Fallback;
   themes: Record<string, Required<OsomTheme>>;
 };
