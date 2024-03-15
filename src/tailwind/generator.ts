@@ -1,10 +1,10 @@
 import type {CSSRuleObject, CustomThemeConfig} from 'tailwindcss/types/config';
+import {hexToRgb} from './colors.ts';
 import {
   type OsomOptions,
   type RequiredOsomOptions,
   getRequiredOptions,
 } from './options';
-import {hexToRgb} from './colors.ts';
 
 export class OsomPluginGenerator {
   options: RequiredOsomOptions;
@@ -130,10 +130,13 @@ export class OsomPluginGenerator {
   }
 
   get fallbackDataThemes() {
-    return Object.entries(this.themes).reduce((o, [key, value]) => {
-      o[`[data-theme=${key}]`] = this.fallback.asVariables(value);
-      return o;
-    }, {} as Record<string, Record<string, string>>);
+    return Object.entries(this.themes).reduce(
+      (o, [key, value]) => {
+        o[`[data-theme=${key}]`] = this.fallback.asVariables(value);
+        return o;
+      },
+      {} as Record<string, Record<string, string>>,
+    );
   }
 
   get base() {

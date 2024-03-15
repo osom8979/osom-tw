@@ -1,6 +1,6 @@
 import type {Config} from 'tailwindcss/types/config';
-import type {OsomOptions} from './options';
 import {OsomPluginGenerator} from './generator';
+import type {OsomOptions} from './options';
 
 export function createOsomConfig(options: OsomOptions): Partial<Config> {
   const opg = new OsomPluginGenerator(options);

@@ -3,7 +3,7 @@ import {createOsomConfig} from './config';
 import type {OsomOptions} from './options';
 import {createOsomPlugin} from './plugin';
 
-export const OsomUiTailwindPlugin = plugin.withOptions(
+export default plugin.withOptions(
   (options: OsomOptions = {}) => {
     return api => createOsomPlugin(api, options);
   },
@@ -11,5 +11,3 @@ export const OsomUiTailwindPlugin = plugin.withOptions(
     return createOsomConfig(options);
   },
 );
-
-export default OsomUiTailwindPlugin;

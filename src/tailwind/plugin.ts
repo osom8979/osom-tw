@@ -1,6 +1,6 @@
 import type {PluginAPI} from 'tailwindcss/types/config';
-import type {OsomOptions} from './options';
 import {OsomPluginGenerator} from './generator';
+import type {OsomOptions} from './options';
 
 export function createOsomPlugin(api: PluginAPI, options: OsomOptions): void {
   const {addBase, addComponents} = api;

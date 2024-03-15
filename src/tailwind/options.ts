@@ -1,7 +1,7 @@
+import {Fallback} from './fallback';
+import {DEFAULT_DARK_THEME} from './themes/dark';
 import type {OsomTheme} from './themes/interface';
 import {DEFAULT_LIGHT_THEME} from './themes/light';
-import {DEFAULT_DARK_THEME} from './themes/dark';
-import {Fallback} from './fallback';
 
 export const DEFAULT_PREFIX = 'osom-';
 export const DEFAULT_LIGHT_NAME = 'light';
