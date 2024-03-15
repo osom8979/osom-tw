@@ -13,7 +13,7 @@ osom ui
 ## Compiles and minifies for production
 
 ```shell
-./yarn build
+./yarn build:tailwind
 ```
 
 ## Style check

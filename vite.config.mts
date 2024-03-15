@@ -1,23 +1,15 @@
 import {resolve} from 'path';
 import {defineConfig} from 'vite';
-import dts from 'vite-plugin-dts';
 
 export default defineConfig({
   base: '/',
-  plugins: [
-    dts({
-      outDir: resolve(__dirname, 'dist', 'tailwind'),
-      entryRoot: resolve(__dirname, 'src', 'tailwind'),
-      insertTypesEntry: true,
-    }),
-  ],
   build: {
-    outDir: resolve(__dirname, 'dist', 'tailwind'),
+    outDir: resolve(__dirname, 'dist'),
     lib: {
       entry: resolve(__dirname, 'src', 'tailwind', 'index.ts'),
-      name: 'osom-tailwind',
+      name: 'osom-ui',
       formats: ['es', 'umd'],
-      fileName: format => `osom-tailwind.${format}.js`,
+      fileName: format => `osom-ui.${format}.js`,
     },
     rollupOptions: {
       external: [

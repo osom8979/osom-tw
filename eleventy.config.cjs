@@ -2,6 +2,7 @@ const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
 const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
+const tailwindConfig = require('./tailwind.config');
 
 /**
  * @param {import('@11ty/eleventy').UserConfig} eleventyConfig
@@ -10,17 +11,11 @@ module.exports = eleventyConfig => {
   eleventyConfig.addPlugin(EleventyVitePlugin);
 
   eleventyConfig.addNunjucksAsyncFilter('postcss', (cssCode, done) => {
-    /** @type {import('tailwindcss').Config} */
-    const tailwindConfig = {
-      content: ['./src/**/*.{js,jsx,njk,md,ts,tsx}'],
-      plugins: [require('./dist/tailwind/osom-tailwind.umd.js')],
-    };
-
     postcss([tailwindcss(tailwindConfig), autoprefixer()])
       .process(cssCode, {from: undefined})
       .then(
-        (r) => done(null, r.css),
-        (e) => done(e, null),
+        result => done(null, result.css),
+        reason => done(reason, null),
       );
   });
 
@@ -31,5 +26,7 @@ module.exports = eleventyConfig => {
       input: 'src',
       output: 'pages',
     },
+    pathPrefix: "/osom-ui/",
+    templateFormats: ["md"]
   };
 };
