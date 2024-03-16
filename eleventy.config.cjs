@@ -1,4 +1,5 @@
-const EleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
+const eleventyBundlerPlugin = require('@11ty/eleventy-plugin-bundle');
+const eleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
 const postcss = require('postcss');
 const tailwindcss = require('tailwindcss');
 const autoprefixer = require('autoprefixer');
@@ -8,7 +9,8 @@ const tailwindConfig = require('./tailwind.config');
  * @param {import('@11ty/eleventy').UserConfig} eleventyConfig
  */
 module.exports = eleventyConfig => {
-  eleventyConfig.addPlugin(EleventyVitePlugin);
+  eleventyConfig.addPlugin(eleventyBundlerPlugin);
+  eleventyConfig.addPlugin(eleventyVitePlugin);
 
   eleventyConfig.addNunjucksAsyncFilter('postcss', (cssCode, done) => {
     postcss([tailwindcss(tailwindConfig), autoprefixer()])
@@ -19,14 +21,16 @@ module.exports = eleventyConfig => {
       );
   });
 
-  eleventyConfig.addWatchTarget('styles/**/*.css');
+  eleventyConfig.addWatchTarget('src/**/*.css');
 
   return {
+    templateFormats: ['md', 'njk', 'html'],
+    markdownTemplateEngine: 'njk',
+    htmlTemplateEngine: 'njk',
     dir: {
       input: 'src',
       output: 'pages',
     },
-    pathPrefix: "/osom-ui/",
-    templateFormats: ["md"]
+    pathPrefix: '/osom-ui/',
   };
 };

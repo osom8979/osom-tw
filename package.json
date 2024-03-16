@@ -24,14 +24,16 @@
   "scripts": {
     "build:tailwind": "vite build",
     "build:pages": "npx @11ty/eleventy",
+    "watch:tailwind": "vite build --watch",
+    "watch:pages": "npx @11ty/eleventy --watch",
     "style": "prettier src -w",
     "lint": "eslint src --ext jsx,js,tsx,ts --report-unused-disable-directives --max-warnings 0",
     "test": "jest",
-    "watch": "npx @11ty/eleventy --watch",
     "serve": "npx @11ty/eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-bundle": "^1.0.5",
     "@11ty/eleventy-plugin-vite": "^4.0.0",
     "@fontsource-variable/hahmlet": "^5.0.12",
     "@fontsource-variable/noto-sans-kr": "^5.0.5",
