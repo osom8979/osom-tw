@@ -1,10 +1,17 @@
 import type {CSSRuleObject, CustomThemeConfig} from 'tailwindcss/types/config';
 import {hexToRgb} from './colors.ts';
+import components from './components';
 import {
   type OsomOptions,
   type RequiredOsomOptions,
   getRequiredOptions,
 } from './options';
+
+export class InvalidClassNameError extends Error {
+  constructor(message?: string) {
+    super(message);
+  }
+}
 
 export class OsomPluginGenerator {
   options: RequiredOsomOptions;
@@ -158,20 +165,12 @@ export class OsomPluginGenerator {
   }
 
   get components() {
-    return {
-      [`.${this.prefix}viewport`]: {
-        width: '100vw',
-        height: '100vh',
-        margin: '0',
-        padding: '0',
-      },
-      [`.${this.prefix}center`]: {
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-    } as CSSRuleObject;
+    return Object.entries(components).reduce((o, [key, value]) => {
+      if (!key.startsWith('.')) {
+        throw new InvalidClassNameError();
+      }
+      o[`.${this.prefix}${key.substring(1)}`] = value;
+      return o;
+    }, {} as CSSRuleObject);
   }
 }
