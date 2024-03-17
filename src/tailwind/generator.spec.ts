@@ -20,6 +20,7 @@ describe('OsomPluginGenerator', () => {
     it('components', () => {
       const componentsKeys = Object.keys(opg.components);
       expect(componentsKeys).toContain('.osom-center');
+      expect(componentsKeys).toContain('.osom-menu');
       expect(componentsKeys).toContain('.osom-navbar');
       expect(componentsKeys).toContain('.osom-viewport');
     });

@@ -3,8 +3,9 @@ import {OsomPluginGenerator} from './generator';
 import type {OsomOptions} from './options';
 
 export function createOsomPlugin(api: PluginAPI, options: OsomOptions): void {
-  const {addBase, addComponents} = api;
+  const {addBase, addComponents, addUtilities} = api;
   const opg = new OsomPluginGenerator(options);
   addBase(opg.base);
   addComponents(opg.components);
+  addUtilities(opg.utilities);
 }

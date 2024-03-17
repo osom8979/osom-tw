@@ -7,6 +7,12 @@ import {
   getRequiredOptions,
 } from './options';
 
+export class InvalidComponentTypeError extends Error {
+  constructor(message?: string) {
+    super(message);
+  }
+}
+
 export class InvalidClassNameError extends Error {
   constructor(message?: string) {
     super(message);
@@ -165,12 +171,33 @@ export class OsomPluginGenerator {
   }
 
   get components() {
-    return Object.entries(components).reduce((o, [key, value]) => {
+    const cs = components
+      .map(c => {
+        if (typeof c !== 'function') {
+          throw new InvalidComponentTypeError();
+        }
+        return c(this.options);
+      })
+      .reduce((o, c) => {
+        return {...o, ...c};
+      }, {} as CSSRuleObject);
+
+    return Object.entries(cs).reduce((o, [key, value]) => {
       if (!key.startsWith('.')) {
         throw new InvalidClassNameError();
       }
       o[`.${this.prefix}${key.substring(1)}`] = value;
       return o;
     }, {} as CSSRuleObject);
+  }
+
+  get utilities() {
+    return {
+      '.scroll-hidden': {
+        '&::-webkit-scrollbar': {display: 'none'}, // Chrome, Edge, Opera, Safari
+        '-ms-overflow-style': 'none', // IE, Edge
+        'scrollbar-width': 'none', // Firefox
+      },
+    } as CSSRuleObject;
   }
 }

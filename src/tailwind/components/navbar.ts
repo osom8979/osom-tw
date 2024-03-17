@@ -1,7 +1,9 @@
-export default {
-  '.navbar': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'between',
-  },
+export default () => {
+  return {
+    '.navbar': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'between',
+    },
+  };
 };

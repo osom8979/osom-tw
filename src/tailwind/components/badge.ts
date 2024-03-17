@@ -1,11 +1,16 @@
 export default () => {
   return {
-    '.center': {
-      width: '100%',
-      height: '100%',
+    '.badge': {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+
+      '&-primary': {
+        display: 'static',
+      },
+      '&-disabled': {
+        display: 'static',
+      },
     },
   };
 };
