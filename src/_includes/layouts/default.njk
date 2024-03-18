@@ -21,7 +21,20 @@ title: osom-ui
   </head>
 
   <body class="prose">
+    <header class="sticky top-0 z-30 h-[72px] bg-base-200/50 backdrop-blur backdrop-filter">
+      <div class="mx-auto max-w-8xl xl:px-8">
+        <div class="flex items-center justify-between border-b border-base-content px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
+          <a class="block" aria-label="osom-ui" href="/">
+          </a>
+          <a class="text-gray-400 hover:text-white" href="https://github.com/osom8979/osom-ui">
+            <span class="sr-only">Github</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
     {{ content | safe }}
+
   </body>
 
 </html>

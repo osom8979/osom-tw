@@ -1,16 +1,16 @@
 export default () => {
   return {
-    '@keyframes btn-pop': {
-      '0%': {
-        transform: 'scale(var(--btn-focus-scale, 0.98));',
-      },
-      '40%': {
-        transform: 'scale(1.02);',
-      },
-      '100%': {
-        transform: 'scale(1);',
-      },
-    },
+    // '@keyframes btn-pop': {
+    //   '0%': {
+    //     transform: 'scale(var(--btn-focus-scale, 0.98));',
+    //   },
+    //   '40%': {
+    //     transform: 'scale(1.02);',
+    //   },
+    //   '100%': {
+    //     transform: 'scale(1);',
+    //   },
+    // },
     '.btn': {
       height: '3rem',
       minHeight: '3rem',
