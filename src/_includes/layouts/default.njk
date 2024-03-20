@@ -1,42 +1,38 @@
----
-title: osom-ui
----
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{ title }}</title>
+    <title>osom-ui</title>
 
     {% set css %}
-    {% include "src/styles/index.css" %}
+        {% include "src/styles/index.css" %}
     {% endset %}
 
     <style>
-      {{css | postcss | safe}}
+        {{css | postcss | safe}}
     </style>
+</head>
 
-  </head>
-
-  <body class="prose">
-    <header class="sticky top-0 z-30 h-[72px] bg-base-200/50 backdrop-blur backdrop-filter">
-      <div class="mx-auto max-w-8xl xl:px-8">
+<body class="prose">
+<header class="sticky top-0 z-30 h-[72px] bg-base-200/50 backdrop-blur backdrop-filter">
+    <div class="mx-auto max-w-8xl xl:px-8">
         <div class="flex items-center justify-between border-b border-base-content px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
-          <a class="block" aria-label="osom-ui" href="/">
-            <img class="w-24 fill-current" src="./osom.logo.svg" alt="osom-ui logo" />
-          </a>
-          <a class="text-gray-400 hover:text-white" href="https://github.com/osom8979/osom-ui">
-            <span class="sr-only">osom-ui repository</span>
-            <img class="h-8 fill-current" src="./github.svg" alt="github logo" />
-          </a>
+            <a class="block [&>svg]:h-5 [&>svg]:fill-current" aria-label="osom-ui"
+               href="{{ '/' | url }}">
+                {% svgInline 'osom.logo.svg' %}
+            </a>
+            <a class="text-gray-400 hover:text-white [&>svg]:h-6 [&>svg]:fill-current"
+               href="https://github.com/osom8979/osom-ui">
+                <span class="sr-only">osom-ui repository</span>
+                {% svgInline 'github.svg' %}
+            </a>
         </div>
-      </div>
-    </header>
+    </div>
+</header>
 
-    {{ content | safe }}
+{{ content | safe }}
 
-  </body>
-
+</body>
 </html>

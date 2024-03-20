@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-img": "^4.0.2",
     "@11ty/eleventy-plugin-bundle": "^1.0.5",
     "@11ty/eleventy-plugin-vite": "^4.0.0",
     "@fontsource-variable/hahmlet": "^5.0.12",

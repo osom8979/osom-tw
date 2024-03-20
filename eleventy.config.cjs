@@ -1,3 +1,4 @@
+const Image = require('@11ty/eleventy-img');
 const eleventyBundlerPlugin = require('@11ty/eleventy-plugin-bundle');
 const eleventyVitePlugin = require('@11ty/eleventy-plugin-vite');
 const postcss = require('postcss');
@@ -19,6 +20,14 @@ module.exports = eleventyConfig => {
         result => done(null, result.css),
         reason => done(reason, null),
       );
+  });
+
+  eleventyConfig.addNunjucksAsyncShortcode('svgInline', async filename => {
+    const metadata = await Image(`./src/_includes/assets/${filename}`, {
+      formats: ['svg'],
+      dryRun: true,
+    });
+    return metadata.svg[0].buffer.toString();
   });
 
   eleventyConfig.addWatchTarget('src/**/*.css');
