@@ -1,38 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>osom-ui</title>
+  <title>osom-ui</title>
 
-    {% set css %}
-        {% include "src/styles/index.css" %}
-    {% endset %}
+  {% set css %}
+    {% include "src/styles/index.css" %}
+  {% endset %}
 
-    <style>
-        {{css | postcss | safe}}
-    </style>
+  <style>
+    {{css | postcss | safe}}
+  </style>
 </head>
 
 <body class="prose">
-<header class="sticky top-0 z-30 h-[72px] bg-base-200/50 backdrop-blur backdrop-filter">
-    <div class="mx-auto max-w-8xl xl:px-8">
-        <div class="flex items-center justify-between border-b border-base-content px-4 py-5 sm:px-6 lg:px-8 xl:px-0">
-            <a class="block [&>svg]:h-5 [&>svg]:fill-current" aria-label="osom-ui"
-               href="{{ '/' | url }}">
-                {% svgInline 'osom.logo.svg' %}
-            </a>
-            <a class="text-gray-400 hover:text-white [&>svg]:h-6 [&>svg]:fill-current"
-               href="https://github.com/osom8979/osom-ui">
-                <span class="sr-only">osom-ui repository</span>
-                {% svgInline 'github.svg' %}
-            </a>
-        </div>
-    </div>
-</header>
-
+{% include "src/_includes/layouts/header.njk" %}
 {{ content | safe }}
-
 </body>
 </html>
