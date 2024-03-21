@@ -5,24 +5,34 @@
 
 ## Overview
 
-I'm using [daisyUI](https://daisyui.com/), but I'm having some issues.
-daisyUI completes components with a combination of CSS classes. (e.g. `btn btn-outline btn-primary`)
-However, if you use the `@apply` directive in a [css module](https://github.com/css-modules/css-modules), the class name will disappear.
-This causes the class name to be exposed to HTML.
+I used [daisyUI](https://daisyui.com/) when working on the
+[osom-web](https://github.com/osom8979/osom-web) project, and it worked perfectly in
+most situations.
+
+However, while using the [CSS Modules](https://github.com/css-modules/css-modules),
+I discovered a few minor issues.
+
+* When using the `@apply` directive in a CSS module, the class name is removed and only
+  the properties are kept.
+* daisyUI completes its components with a combination of CSS classes
+  (e.g. `btn btn-outline btn-primary`).
+
+As a result, daisyUI components cannot be used in `@apply` directives. If you want to
+use Daisy UI components, you need to expose them to the `class` attribute in HTML.
+
+Like this:
 
 ```tsx
 <button className={styles.classA + ' btn-outline ..'} />
 ```
 
-This acts as a factor that hinders readability.
-
-I advocate splitting HTML/JS/CSS as much as possible from a software architecture perspective.
-Therefore, we want to create a [tailwind](https://tailwindcss.com/) component that can be used in CSS modules.
+This acts as a factor that hinders readability. (At least not my preferred coding style)
+I advocate splitting HTML/JS/CSS as much as possible from a software architecture
+perspective. So I want to create a [tailwind](https://tailwindcss.com/) component that
+is compatible with the `@apply` directive.
 
 ## Project rule
 
-* Do not use class selectors like `.classA > .classB`.
-* This causes problems when using the `@apply` directive in CSS modules.
 * It is assumed that the `@apply` directive is actively used in CSS modules.
 * If possible, use selectors that use basic HTML **tags** or **attributes**.
 * If there is no appropriate HTML attribute, use the `data-*` attribute.
